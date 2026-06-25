@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1-2-4 (1) 대중 매체와 개인 인터넷 방송</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', 'Nanum Gothic', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+        }
+        
+        /* Smooth tab transition */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        .tab-content.block {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 3D Card Flip Animation */
+        .perspective-1000 {
+            perspective: 1000px;
+        }
+        .flip-inner {
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+        .group:hover .flip-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-front, .flip-back {
+            backface-visibility: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .flip-back {
+            transform: rotateY(180deg);
+        }
+        
+        /* Pulse effect for dynamic unlock */
+        .unlock-pulse {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+        }
+    </style>
+</head>
+<body class="text-slate-800 min-h-screen flex flex-col">
+
+    <!-- Header Block -->
+    <header class="bg-gradient-to-r from-indigo-700 to-indigo-900 text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="py-5 flex flex-col md:flex-row justify-center md:justify-start items-center gap-4">
+                <div class="flex items-center gap-3">
+                    <div class="bg-indigo-600 p-2.5 rounded-xl shadow-inner">
+                        <i class="fas fa-satellite-dish text-2xl text-indigo-100"></i>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <p class="text-indigo-300 text-sm font-semibold tracking-wider uppercase">1-2-4 (1)</p>
+                        <h1 class="text-xl md:text-2xl font-black tracking-tight">대중 매체와 개인 인터넷 방송</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full space-y-8">
+        
+        <!-- Navigation Buttons (Moved outside of header) -->
+        <div class="flex justify-center w-full">
+            <nav class="flex flex-wrap justify-center w-full gap-4 md:gap-8">
+                <button onclick="window.showTab('media-concept')" id="btn-media-concept" class="tab-btn whitespace-nowrap py-3.5 px-6 md:px-10 font-bold text-base md:text-lg rounded-xl bg-white text-indigo-700 border border-slate-200 shadow-md transition-all duration-200 transform hover:-translate-y-1">
+                    <i class="fas fa-book-open mr-2"></i>매체의 개념과 특징
+                </button>
+                <button onclick="window.showTab('vocab')" id="btn-vocab" class="tab-btn whitespace-nowrap py-3.5 px-6 md:px-10 font-bold text-base md:text-lg rounded-xl bg-slate-200/80 hover:bg-slate-300 text-slate-600 border border-transparent transition-all duration-200 transform hover:-translate-y-1">
+                    <i class="fas fa-language mr-2"></i>어휘 정리
+                </button>
+                <button onclick="window.showTab('quiz')" id="btn-quiz" class="tab-btn whitespace-nowrap py-3.5 px-6 md:px-10 font-bold text-base md:text-lg rounded-xl bg-slate-200/80 hover:bg-slate-300 text-slate-600 border border-transparent transition-all duration-200 transform hover:-translate-y-1">
+                    <i class="fas fa-pen-fancy mr-2"></i>형성 평가
+                </button>
+            </nav>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- 1. 매체의 개념과 특징 탭 -->
+        <!-- ============================================== -->
+        <section id="tab-media-concept" class="tab-content block">
+            <div class="space-y-8">
+                
+                <!-- 매체의 뜻 -->
+                <div class="bg-white rounded-2xl shadow-sm p-6 md:p-8 border border-slate-100">
+                    <div class="flex items-center gap-2 mb-6 border-b border-slate-100 pb-4">
+                        <span class="w-1.5 h-6 bg-indigo-600 rounded-full"></span>
+                        <h3 class="text-xl font-bold text-slate-950">매체의 뜻</h3>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-indigo-50/70 rounded-xl p-6 border border-indigo-100/50 hover:shadow-md transition-all duration-200">
+                            <h4 class="text-lg font-bold text-indigo-900 mb-3 flex items-center gap-2">
+                                <i class="fas fa-tv text-indigo-600"></i>대중 매체 (전통적 매체)
+                            </h4>
+                            <p class="text-slate-700 leading-relaxed text-sm md:text-base">
+                                신문, 라디오, 텔레비전 등과 같이 <span class="font-semibold text-indigo-700">불특정 다수의 사람들</span>에게 동일한 정보와 사상을 <span class="font-semibold text-indigo-700">대량으로 전달</span>하는 일방향적 매체 수단입니다.
+                            </p>
+                        </div>
+                        <div class="bg-pink-50/70 rounded-xl p-6 border border-pink-100/50 hover:shadow-md transition-all duration-200">
+                            <h4 class="text-lg font-bold text-pink-900 mb-3 flex items-center gap-2">
+                                <i class="fas fa-laptop-house text-pink-600"></i>개인 인터넷 방송 (상호작용적 매체)
+                            </h4>
+                            <p class="text-slate-700 leading-relaxed text-sm md:text-base">
+                                개인이 콘텐츠의 기획부터 진행, 촬영, 편집까지 <span class="font-semibold text-pink-700">스스로 직접 제작</span>하여 인터넷 플랫폼 및 모바일 기기를 활용해 공유하는 쌍방향성 미디어입니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 매체의 특징 -->
+                <div class="bg-white rounded-2xl shadow-sm p-6 md:p-8 border border-slate-100">
+                    <div class="flex items-center gap-2 mb-6 border-b border-slate-100 pb-4">
+                        <span class="w-1.5 h-6 bg-indigo-600 rounded-full"></span>
+                        <h3 class="text-xl font-bold text-slate-950">매체의 특징</h3>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-slate-50 rounded-xl p-6 border border-slate-200/60">
+                            <h4 class="text-base font-bold text-slate-900 mb-4 flex items-center gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-indigo-500"></span>대중 매체의 핵심 작동 방식
+                            </h4>
+                            <ul class="space-y-3 text-sm md:text-base text-slate-600">
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fas fa-arrow-alt-circle-right text-indigo-500 mt-1"></i>
+                                    <span>정보의 <span class="font-semibold text-indigo-700">일방향성</span> (대부분 생산자가 수용자에게 단방향 송출)</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fas fa-arrow-alt-circle-right text-indigo-500 mt-1"></i>
+                                    <span>사회 전체 여론 형성에 미치는 <span class="font-semibold text-indigo-700">강력한 사회적 파급력</span></span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fas fa-arrow-alt-circle-right text-indigo-500 mt-1"></i>
+                                    <span>각 분야 전문가 집단의 취재 및 검토를 거쳐 <span class="font-semibold text-indigo-700">정보 신뢰도가 상대적으로 높음</span></span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-slate-50 rounded-xl p-6 border border-slate-200/60">
+                            <h4 class="text-base font-bold text-slate-900 mb-4 flex items-center gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-pink-500"></span>개인 인터넷 방송의 핵심 작동 방식
+                            </h4>
+                            <ul class="space-y-3 text-sm md:text-base text-slate-600">
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fas fa-sync text-pink-500 mt-1 text-xs"></i>
+                                    <span>실시간 대화창 및 댓글을 통한 실시간 <span class="font-semibold text-pink-700">쌍방향 소통</span></span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fas fa-sync text-pink-500 mt-1 text-xs"></i>
+                                    <span>생산자와 수용자의 <span class="font-semibold text-pink-700">구분이 불명확함</span> (누구나 제작자 가능)</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fas fa-sync text-pink-500 mt-1 text-xs"></i>
+                                    <span>개개인의 다채로운 관심사와 취향을 충족시키는 <span class="font-semibold text-pink-700">세분화된 독창성</span></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 매체 비교 표 -->
+                <div class="bg-white rounded-2xl shadow-sm p-6 md:p-8 border border-slate-100">
+                    <div class="flex items-center gap-2 mb-6 border-b border-slate-100 pb-4">
+                        <span class="w-1.5 h-6 bg-indigo-600 rounded-full"></span>
+                        <h3 class="text-xl font-bold text-slate-950">매체 비교</h3>
+                    </div>
+                    
+                    <div class="overflow-x-auto rounded-xl border border-slate-200">
+                        <table class="w-full text-left border-collapse min-w-[600px]">
+                            <thead>
+                                <tr class="bg-slate-100 text-slate-800 border-b border-slate-200">
+                                    <th class="p-4 font-bold text-center w-1/5 bg-slate-50">구분 기준</th>
+                                    <th class="p-4 font-bold w-2/5">대중 매체 (전통적 매체)</th>
+                                    <th class="p-4 font-bold w-2/5">개인 인터넷 방송</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white text-sm md:text-base">
+                                <tr class="border-b border-slate-100 hover:bg-slate-50/50 transition-colors">
+                                    <td class="p-4 font-semibold text-center bg-slate-50 text-slate-700">자본 규모</td>
+                                    <td class="p-4 text-slate-600">
+                                        기획·운영을 위해 조직적 차원의 <span class="font-black text-indigo-700 bg-indigo-50 px-2 py-1 rounded">많은 자본</span>이 필요함
+                                    </td>
+                                    <td class="p-4 text-slate-600">
+                                        스마트 기기 기반의 환경으로 <span class="font-black text-pink-700 bg-pink-50 px-2 py-1 rounded">적은 자본</span>으로 제작 가능
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-slate-100 hover:bg-slate-50/50 transition-colors">
+                                    <td class="p-4 font-semibold text-center bg-slate-50 text-slate-700">제작 및 참여 인력</td>
+                                    <td class="p-4 text-slate-600">
+                                        전문 방송사 등 <span class="font-black text-indigo-700 bg-indigo-50 px-2 py-1 rounded">다수 전문 인력</span>의 정교한 분업화
+                                    </td>
+                                    <td class="p-4 text-slate-600">
+                                        별도의 자격 요건 없이 <span class="font-black text-pink-700 bg-pink-50 px-2 py-1 rounded">전문성 없어도 누구나</span> 1인 제작 가능
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/50 transition-colors">
+                                    <td class="p-4 font-semibold text-center bg-slate-50 text-slate-700">주요 수용 대상</td>
+                                    <td class="p-4 text-slate-600">
+                                        사회 전반의 불특정 다수인 <span class="font-black text-indigo-700 bg-indigo-50 px-2 py-1 rounded">대중</span> 지향
+                                    </td>
+                                    <td class="p-4 text-slate-600">
+                                        특정 취향이나 세밀한 분야에 <span class="font-black text-pink-700 bg-pink-50 px-2 py-1 rounded">관심 있는 일부</span> 매니아 중심
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 매체의 영향력 -->
+                <div class="bg-white rounded-2xl shadow-sm p-6 md:p-8 border border-slate-100">
+                    <div class="flex items-center gap-2 mb-6 border-b border-slate-100 pb-4">
+                        <span class="w-1.5 h-6 bg-indigo-600 rounded-full"></span>
+                        <h3 class="text-xl font-bold text-slate-950">매체의 영향력</h3>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-emerald-50 rounded-xl p-6 border border-emerald-100">
+                            <h4 class="text-base font-bold text-emerald-900 mb-3 flex items-center gap-2">
+                                <i class="fas fa-plus-circle text-emerald-600"></i>긍정적인 면
+                            </h4>
+                            <ul class="space-y-2 text-sm text-emerald-950 list-disc list-inside">
+                                <li>새롭고 가치 있는 정보를 신속하게 광범위로 전달함</li>
+                                <li>오락 프로그램과 콘텐츠를 통해 사람들에게 활력과 여가 기회를 제공함</li>
+                                <li>여론을 모으고 수렴하여 부조리한 사회문제를 공론화하고 개혁에 일조함</li>
+                                <li>다채로운 문화를 전파하고 소통하여 창의성과 공감 능력을 증진함</li>
+                            </ul>
+                        </div>
+                        <div class="bg-rose-50 rounded-xl p-6 border border-rose-100">
+                            <h4 class="text-base font-bold text-rose-900 mb-3 flex items-center gap-2">
+                                <i class="fas fa-minus-circle text-rose-600"></i>부정적인 면
+                            </h4>
+                            <ul class="space-y-2 text-sm text-rose-950 list-disc list-inside">
+                                <li>검증되지 않은 왜곡 정보, 가짜 뉴스로 심각한 사회적 대립과 혼란 조장</li>
+                                <li>자극적이거나 폭력성 높은 유해 정보 노출로 도덕적 정서 훼손</li>
+                                <li>악플, 사생활 침해, 가치 왜곡으로 피해 발생 우려가 상존함</li>
+                                <li>자신이 원하는 성향의 정보만 수용해 생기는 확증 편향 및 중독 현상</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- 올바른 수용 태도 가이드 -->
+                    <div class="mt-6 bg-indigo-50 border border-indigo-100 p-5 rounded-xl flex items-start gap-3">
+                        <i class="fas fa-shield-alt text-indigo-600 text-xl mt-0.5"></i>
+                        <div>
+                            <h4 class="font-bold text-indigo-900 text-sm md:text-base">매체를 이용하는 우리의 올바른 지혜</h4>
+                            <p class="text-indigo-950 text-xs md:text-sm mt-1 leading-relaxed">
+                                매체 자료의 생산자가 가지고 있는 <span class="font-bold">숨겨진 제작 의도와 신뢰성</span>을 정확히 구분하고 파악하여, 한쪽으로 쏠린 시선을 피하고 적극적으로 <span class="font-bold text-indigo-700 bg-white px-1 rounded border border-indigo-200">비판적으로 수용하는 건강한 태도</span>가 가장 필수적입니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- 2. 어휘 정리 탭 (4단 5열 그리드) -->
+        <!-- ============================================== -->
+        <section id="tab-vocab" class="tab-content hidden">
+            <div class="bg-white rounded-2xl shadow-sm p-6 md:p-10 text-center space-y-8 border border-slate-100">
+                <div>
+                    <h3 class="text-3xl font-bold text-gray-800 border-b-2 border-indigo-500 pb-3 mb-2">
+                        <i class="fas fa-language text-indigo-500 mr-2"></i>핵심 어휘 정리 (4단 5열)
+                    </h3>
+                    <p class="text-gray-500 text-sm md:text-base">교과서와 학습지에서 추출한 꼭 알아야 할 20개 어휘입니다. 카드를 클릭하거나 마우스를 올리면 예시 자료와 뜻이 반전됩니다.</p>
+                </div>
+
+                <!-- Flashcard Grid Dynamic Area -->
+                <div id="vocab-grid-4x5" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 text-left">
+                    <!-- Javascript will render 20 items here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- 3. 형성 평가 탭 (인적 사항 락킹 시스템 + 즉시 채점) -->
+        <!-- ============================================== -->
+        <section id="tab-quiz" class="tab-content hidden">
+            <div class="bg-white rounded-2xl shadow-sm p-6 md:p-10 border border-slate-100 space-y-8">
+                
+                <div class="text-center">
+                    <h3 class="text-2xl font-bold text-gray-800 border-b-2 border-indigo-500 pb-3 mb-2 inline-block">
+                        <i class="fas fa-pen-fancy text-indigo-500 mr-2"></i>단원 형성 평가
+                    </h3>
+                    <p class="text-slate-500 text-xs md:text-sm mt-1">학습 내용을 진단하기 위해 10문제를 준비했습니다. 인적 사항 입력 후 시작하세요.</p>
+                </div>
+
+                <!-- Phase 1: Student Registration Block (Initially Active) -->
+                <div id="student-form-card" class="bg-gradient-to-br from-indigo-50 to-slate-50 rounded-2xl p-6 md:p-8 border border-indigo-100 shadow-sm max-w-2xl mx-auto space-y-6">
+                    <div class="text-center">
+                        <span class="bg-indigo-600 text-white text-xs px-3 py-1 rounded-full font-bold uppercase tracking-wider">Step 1</span>
+                        <h4 class="text-lg font-bold text-indigo-950 mt-2">평가 응시자 정보 등록</h4>
+                        <p class="text-xs text-indigo-700/80 mt-1">학년, 반, 번호, 이름을 모두 정확히 입력하시면 평가지가 활성화됩니다.</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-600 mb-1.5">학년</label>
+                            <input type="number" id="info-grade" min="1" max="6" placeholder="예) 1" class="w-full px-3 py-2.5 bg-white border border-slate-200 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none font-medium text-slate-800 text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-600 mb-1.5">반</label>
+                            <input type="number" id="info-class" min="1" max="25" placeholder="예) 3" class="w-full px-3 py-2.5 bg-white border border-slate-200 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none font-medium text-slate-800 text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-600 mb-1.5">번호</label>
+                            <input type="number" id="info-number" min="1" max="50" placeholder="예) 17" class="w-full px-3 py-2.5 bg-white border border-slate-200 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none font-medium text-slate-800 text-sm">
+                        </div>
+                        <div class="col-span-2 md:col-span-1">
+                            <label class="block text-xs font-bold text-slate-600 mb-1.5">이름</label>
+                            <input type="text" id="info-name" placeholder="예) 홍길동" class="w-full px-3 py-2.5 bg-white border border-slate-200 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none font-medium text-slate-800 text-sm">
+                        </div>
+                    </div>
+                    
+                    <div class="text-center pt-2">
+                        <button onclick="startQuizFlow()" class="unlock-pulse bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-xl shadow-md text-sm md:text-base transition-all duration-150 active:scale-95">
+                            <i class="fas fa-lock-open mr-2"></i>평가 시작하기
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Phase 2: Live Quiz Screen (Initially Hidden / Blocked) -->
+                <div id="quiz-workspace" class="hidden space-y-8">
+                    
+                    <!-- 실시간 점수 대시보드 배너 -->
+                    <div class="bg-slate-900 text-white rounded-xl p-4 flex flex-col sm:flex-row justify-between items-center gap-3 shadow-inner">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                            <span id="display-student-tag" class="text-xs md:text-sm font-semibold text-slate-300"></span>
+                        </div>
+                        <div class="flex gap-4 text-xs md:text-sm">
+                            <span class="text-slate-400">풀이 완료: <strong id="progress-solved-count" class="text-white font-bold">0</strong> / 10 문제</span>
+                            <span class="text-slate-400">획득 점수: <strong id="live-calculated-score" class="text-emerald-400 font-bold">0</strong> 점</span>
+                        </div>
+                    </div>
+
+                    <!-- 문제 리스트 영역 -->
+                    <div id="quiz-cards-box" class="space-y-6">
+                        <!-- Questions will be loaded dynamically here -->
+                    </div>
+
+                    <!-- 최종 평가 종료 및 최종 제출 피드백 -->
+                    <div class="border-t border-slate-100 pt-8 text-center space-y-4">
+                        <p class="text-xs text-slate-400">모든 개별 문제 채점을 완료하신 후 최종 완료 결과를 저장 및 확인하세요.</p>
+                        <button id="btn-final-finish" onclick="completeWholeAssessment()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3.5 px-8 rounded-xl shadow-md text-sm md:text-base">
+                            <i class="fas fa-flag-checkered mr-1.5"></i>전체 결과표 열람
+                        </button>
+                    </div>
+
+                    <!-- 최종 결과 종합 디렉토리 (초기 숨김) -->
+                    <div id="whole-result-overlay" class="hidden bg-slate-900 text-white rounded-2xl p-6 md:p-8 shadow-xl text-center transform transition-all duration-500 scale-100">
+                        <h4 class="text-xl md:text-2xl font-black text-indigo-400 mb-2">종합 평가 결과 통지서</h4>
+                        <div class="py-4 border-y border-slate-800 my-4 max-w-md mx-auto space-y-1">
+                            <p class="text-slate-300 text-sm">응시자: <span id="board-student-spec" class="font-bold text-white"></span></p>
+                            <p class="text-slate-300 text-sm">최종 점수: <span id="board-final-score" class="font-extrabold text-emerald-400 text-2xl">0</span> / 100 점</p>
+                        </div>
+                        <p id="board-result-feedback" class="text-sm text-slate-300 mb-6 font-medium px-4"></p>
+                        
+                        <button onclick="retryWholeQuiz()" class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-2.5 px-6 rounded-lg text-xs md:text-sm">
+                            <i class="fas fa-redo-alt mr-1.5"></i>새로운 환경으로 다시 풀기
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-800 text-slate-400 py-6 text-center text-xs md:text-sm border-t border-slate-700 shrink-0">
+        <p class="font-medium">&copy; 2026 중학 국어 학습 멀티미디어 교실. 교과서 연계 교육 자료.</p>
+    </footer>
+
+    <script>
+        // ==========================================
+        // 1. 탭 네비게이션 제어 로직
+        // ==========================================
+        window.showTab = function(tabId) {
+            // 모든 탭 컨텐츠 숨기기
+            var contents = document.querySelectorAll('.tab-content');
+            contents.forEach(function(content) {
+                content.classList.remove('block');
+                content.classList.add('hidden');
+            });
+            
+            // 모든 버튼 스타일 초기화 (비활성 상태로 분리형 탭 디자인 적용)
+            var buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(function(btn) {
+                btn.classList.remove('bg-white', 'text-indigo-700', 'shadow-md', 'border-slate-200');
+                btn.classList.add('bg-slate-200/80', 'text-slate-600', 'border-transparent');
+            });
+            
+            // 선택된 탭 보이기
+            document.getElementById('tab-' + tabId).classList.remove('hidden');
+            document.getElementById('tab-' + tabId).classList.add('block');
+            
+            // 선택된 버튼 스타일 활성화
+            var activeBtn = document.getElementById('btn-' + tabId);
+            activeBtn.classList.remove('bg-slate-200/80', 'text-slate-600', 'border-transparent');
+            activeBtn.classList.add('bg-white', 'text-indigo-700', 'shadow-md', 'border-slate-200');
+        };
+
+        // ==========================================
+        // 2. 어휘 데이터 및 렌더링 (4단 5열 플래시 카드)
+        // ==========================================
+        var vocabData = [
+            { word: "수용자(受容者)", def: "어떠한 정보나 사물을 받아들이는 사람. 매체 환경에서는 시청자나 독자를 일컬음.", ex: "과거에 정보 소비자는 단순한 수용자에 불과했으나 현대엔 참여적 독자로 변하고 있습니다." },
+            { word: "생산자(生産者)", def: "정보, 영상, 아이디어 등의 상품이나 지적 결과물을 제작하여 공급하는 사람.", ex: "개인 인터넷 방송 기술의 발전에 따라 누구나 즉각적인 미디어 생산자로 우뚝 설 수 있습니다." },
+            { word: "일방향(一方向)", def: "어느 한쪽으로만 흘러 치우치는 현상. 정보를 수용자가 일방적으로 받기만 함.", ex: "전통적 신문이나 공중파 뉴스는 대표적인 일방향 정보 송출 구조를 보입니다." },
+            { word: "쌍방향(雙方向)", def: "동등한 위치에서 서로 의사 및 정보를 상호 소통하는 환경.", ex: "인터넷 스트리밍은 실시간 댓글 창을 통해 기막힌 쌍방향 상호작용을 자아냅니다." },
+            { word: "파급력(波及力)", def: "어떠한 작용이나 변화가 주변 영역과 사회 전반으로 밀려 미치는 힘.", ex: "전국에 동시에 전파를 타는 뉴스 미디어는 사회적 여론 형성에 아주 압도적인 파급력을 띱니다." },
+            { word: "신뢰성(信賴性)", def: "내용의 사실 관계가 객관적이고 정확하여 온전히 믿고 기댈 수 있는 속성.", ex: "전문 취재와 철저한 팩트 체크를 필친 기자단 기사는 통상 신뢰성이 강합니다." },
+            { word: "불특정(不特定)", def: "대상이 하나로 명확히 정해져 있지 않고 광범위하게 열려 있는 상태.", ex: "대중 매체는 불특정 대중을 겨냥해 보편적인 콘텐츠를 다량 살포합니다." },
+            { word: "편향(偏向)", def: "어느 한쪽으로 극단적으로 치우쳐 공정함을 잃은 시각이나 성향.", ex: "특정한 극단의 논리만 파고들면 객관적 사실을 보지 못하는 편향에 갇힙니다." },
+            { word: "사생활 침해", def: "개인 고유의 은밀한 프라이버시가 강제로 무단 유포되거나 훼손되어 정신적 해를 입는 일.", ex: "카메라 야외 중계 도중 우연히 일반 시민의 사적인 공간이 비춰져 사생활 침해 논쟁이 일었습니다." },
+            { word: "선정적(煽情的)", def: "대중의 충동적인 호기심이나 말초적 자극을 무리하게 부채질해 자극하는 행위.", ex: "단순히 조회수를 폭발시키려 가공의 자극적이고 선정적인 타이틀을 뽑아서는 안 됩니다." },
+            { word: "유해(有害)", def: "개인의 정신 및 신체 정서에 심각하게 이롭지 않고 해로움이 끼치는 상황.", ex: "미성년 수용자들을 미디어 속 무분별한 폭력 유해물로부터 엄호하는 장치가 꼭 필요합니다." },
+            { word: "가짜 뉴스", def: "교묘하게 허위의 조작된 거짓 사실을 실제의 언론 기사 형식으로 꾸며서 살포하는 뉴스.", ex: "신중하지 못한 자극적 가짜 뉴스는 국가적 분란과 무고한 피해자를 잉태합니다." },
+            { word: "여론(輿論)", def: "사회적인 이슈나 주제에 관하여 다수의 국민이 형성하는 대중적 공통의 생각.", ex: "대중 언론의 활발한 환경 보도는 새로운 기후 위기 극복 여론을 일깨워 냈습니다." },
+            { word: "여가 선용", def: "가용되는 휴식 시간이나 취미 활동의 틈을 유익하고 긍정적인 가치로 요리하는 활동.", ex: "개인형 스포츠 방송은 현대인들에게 건강한 생활 체육과 여가 선용 기틀을 전파합니다." },
+            { word: "감시(監視)", def: "사회 질서 유지나 권력 남용 방지를 위해 눈여겨 빈틈없이 관찰하는 행위.", ex: "전통 매체는 우리 사회의 공적 기구들이 부정부패를 저지르지 않게 감시망을 가동합니다." },
+            { word: "세분화(細分化)", def: "사물이나 상황을 아주 정밀하고 작게 갈래를 나누어 가공하는 체제.", ex: "취향이 무수히 쪼개진 수용자들을 위해 유튜브는 세분화된 맞춤 테마 방송을 공급합니다." },
+            { word: "창의성(創意性)", def: "새롭고 가치 있는 사유를 자아내어 기발한 방식으로 표현을 설계하는 소질.", ex: "1인 인터넷 미디어는 개개인의 자유롭고 참신한 창의성 발현의 토양입니다." },
+            { word: "접근성(接近性)", def: "수용자나 이용자가 특정 도구나 서비스에 손쉽게 닿아 조작할 수 있는 정도.", ex: "모든 국민들이 모바일을 지닌 오늘날, 쌍방향 인터넷의 인프라 접근성은 극대화되었습니다." },
+            { word: "제약(制約)", def: "일정한 자격 요건이나 공간적 벽을 설정하여 행위의 여지를 줄이는 조건.", ex: "인터넷 네트워크 미디어는 공간적 차원의 한계나 제약이 무의미합니다." },
+            { word: "분업(分業)", def: "복합적인 제작의 경로를 역할별로 엄밀히 쪼개어 각각의 전문가가 수행하는 체계.", ex: "영화 촬영은 조명, 편집, 연기, 음향 등 명확한 제작상의 분업으로 구축됩니다." }
+        ];
+
+        function renderVocabGrid4x5() {
+            var container = document.getElementById('vocab-grid-4x5');
+            container.innerHTML = "";
+            vocabData.forEach(function(item, idx) {
+                var num = idx + 1;
+                var numStr = num < 10 ? "0" + num : num;
+                var wordMain = item.word.split('(')[0];
+                var wordHanja = item.word.includes('(') ? item.word.match(/\((.*?)\)/)[0] : '';
+                
+                var cardHTML = `
+                    <div class="w-full h-64 perspective-1000 group cursor-pointer">
+                        <div class="flip-inner w-full h-full relative rounded-xl shadow-sm border border-slate-200">
+                            <!-- Front Side of Flashcard -->
+                            <div class="flip-front bg-indigo-50/50 rounded-xl flex flex-col justify-center items-center p-6 text-center border-b-4 border-indigo-200 group-hover:border-indigo-400 transition-colors">
+                                <span class="absolute top-3 left-4 text-indigo-300 font-bold text-base">${numStr}</span>
+                                <h4 class="text-3xl font-black text-indigo-900 mb-2">${wordMain}</h4>
+                                ${wordHanja ? `<span class="text-sm text-indigo-500 font-medium mb-3">${wordHanja}</span>` : ''}
+                                <p class="text-xs text-slate-500 bg-white px-3 py-1.5 rounded-full border border-slate-100 mt-3 shadow-sm"><i class="fas fa-hand-pointer mr-1"></i>뜻/예시 자료 보기</p>
+                            </div>
+                            <!-- Back Side of Flashcard -->
+                            <div class="flip-back bg-white rounded-xl p-5 flex flex-col border-2 border-indigo-400 overflow-y-auto">
+                                <div class="flex items-center justify-between border-b border-slate-100 pb-2 mb-3 shrink-0">
+                                    <h4 class="text-lg font-bold text-indigo-800">${wordMain}</h4>
+                                    <span class="text-sm font-bold bg-indigo-100 text-indigo-600 px-2 py-0.5 rounded">${numStr}</span>
+                                </div>
+                                <div class="flex-grow flex flex-col justify-center mb-3">
+                                    <span class="text-[11px] font-bold text-slate-400 mb-1">정의 및 뜻</span>
+                                    <p class="text-sm md:text-base text-slate-700 font-medium leading-snug break-keep">${item.def}</p>
+                                </div>
+                                <div class="bg-emerald-50 p-2.5 rounded-lg border border-emerald-100/50 shrink-0">
+                                    <span class="text-[11px] font-bold text-emerald-500 mb-0.5 block">예시 자료</span>
+                                    <p class="text-xs md:text-sm text-slate-600 italic leading-snug break-keep">"${item.ex}"</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += cardHTML;
+            });
+        }
+
+        // ==========================================
+        // 3. 형성 평가 10문항 데이터 및 실시간 로직
+        // ==========================================
+        var quizQuestions = [
+            { id: 1, type: "ox", q: "대중 매체는 생산자와 수용자의 구분이 명확하지 않고, 언제든지 실시간으로 상호 쌍방향 소통이 일어나는 것을 주된 기본적 특성으로 삼는다.", ans: "X", exp: "대중 매체는 기본적으로 생산자가 다수 수용자에게 정보를 일방향으로 공급하는 특성을 지닙니다. 생산자와 수용자 구분이 어렵고 즉각적 쌍방향 소통을 하는 주체는 '개인 인터넷 방송'입니다." },
+            { id: 2, type: "ox", q: "개인 인터넷 방송은 방송사나 언론사처럼 대규모 전문 조직과 다양한 전문 인력이 고도의 협업 및 분업을 하여서만 매체 자료를 생산하는 시스템이다.", ans: "X", exp: "개인 인터넷 방송은 전문 장비나 고도의 훈련 기술이 없어도, 비교적 저렴한 스마트폰 하나로 개인이 혼자서도 부담 없이 창작 및 공유할 수 있습니다." },
+            { id: 3, type: "short", q: "기획, 촬영, 제작, 연출, 편집 등 각 부문의 고유 업무 영역을 각 전문가가 책임감 있게 분담하여 함께 이행하는 제작 메커니즘을 뜻하는 단어는? (2글자)", ans: "분업", exp: "대중 매체는 기획, 촬영, 제작 전반에서 고도로 분화된 전문 인력들이 나누어 일하는 '분업(分業)' 및 협업 구조를 갖추고 있습니다." },
+            { id: 4, type: "short", q: "자신의 신념이나 견해에 부합하는 한쪽 편의 정보만 입맛에 맞게 편식하듯 선택적으로 수용하고, 이에 어긋나는 반대 정보는 불신하며 무시해 버리는 미디어 수용 현상을 무엇이라고 합니까? (4글자)", ans: "확증 편향", exp: "개인의 선호 알고리즘에 의해 입맛에 맞는 정보에만 갇혀 한쪽에 치우친 가치관에 집착하는 현상을 '확증 편향(確證偏向)'이라고 합니다." },
+            { id: 5, type: "multi", q: "다음 중 전통적인 대중 매체가 지닌 보편적 고유 특징으로 가장 거리가 먼 것은?", options: ["대중에게 동일한 질의 메시지를 한꺼번에 대량 보급한다.", "사회적으로 공동의 견해나 여론을 이끌어 공익적 논의를 형성한다.", "전문 기자나 제작팀을 거치므로 비교적 정밀한 신뢰도를 확보한다.", "시청자와 제작자가 실시간 채팅을 통해 완전히 동등하게 방송 흐름을 이끈다.", "매체 자료 생산 주체와 자료를 수용하는 대상 간의 역할이 아주 뚜렷하다."], ans: 3, exp: "실시간 대화 및 소통으로 방송 참여자가 즉석에서 제작 흐름을 주도하는 것은 쌍방향 특징인 '개인 인터넷 방송'의 대표적인 현상입니다." },
+            { id: 6, type: "multi", q: "개인 인터넷 방송이 사회적으로 널리 성행하고 보편화된 물리적 핵심 배경 요소로 가장 알맞은 것은?", options: ["전국 단위 초거대 전문 인력 방송 센터의 건립", "국가 차원의 신문 구독 예산의 전폭적인 증액", "인터넷 통신망의 정교화 및 스마트폰 기기의 대중적 보급", "전통적인 문자 중심 인쇄 매체의 전성기 재도래", "방송 기획안 심사 위원회의 강력한 원천 규제 조치"], ans: 2, exp: "디지털 초고속 인터넷 인프라의 확충 및 개인용 '스마트폰' 보급의 일반화는 누구나 1인 크리에이터로 미디어를 기획 및 유통하는 기폭제가 되었습니다." },
+            { id: 7, type: "multi", q: "대중 매체와 개인 인터넷 방송이 우리의 일상 삶과 사회에 주는 이롭고 긍정적인 역할이 아닌 것은?", options: ["수용자가 미처 알지 못한 지구촌 곳곳의 새로운 지식과 소식을 민첩하게 전파함.", "가족과 공유하며 편안히 쉴 수 있는 오락 콘텐츠를 공급하여 여가 선용을 도움.", "국가 기구가 잘못된 제도로 시민의 행복을 침해하지 않도록 언론 감시 기능을 행함.", "수익 목적의 자극적이고 선정적인 가짜 정보를 적극 유포하여 사회적 갈등을 유발함.", "다채로운 문화를 영상과 예술로 연계하여 상호 문화 전파의 통로 역할을 함."], ans: 3, exp: "수익이나 흥미 유발만을 겨냥해 검증되지 않은 악성 루머나 선정적 콘텐츠를 유포하는 것은 명백히 매체의 역기능이며 부정적인 악영향입니다." },
+            { id: 8, type: "multi", q: "미디어가 쏟아내는 수많은 지식 및 기사를 받아들이는 수용자의 건강하고 이상적인 가이드라인 태도가 아닌 것은?", options: ["생산자의 배후 속셈이나 의도를 끊임없이 의심해 본다.", "언론이 보도하는 지식은 무조건 100% 진실이므로 추호도 의심하지 않고 전수한다.", "주어지는 정보와 주장을 그대로 믿지 않고 다양한 자료와 비교하며 검증한다.", "올바른 저작권 에티켓을 성실히 지키며 건전한 네티켓 댓글 문화를 수호한다.", "한쪽 편으로만 쏠려 왜곡된 시각의 정보인지 스스로 객관성을 분석해 본다."], ans: 1, exp: "언론사나 생산자의 정보라 할지라도 치우치거나 잘못된 내용이 섞여 있을 수 있으므로 무조건적인 맹신을 피하고 '비판적 수용'을 기르는 태도가 참교육입니다." },
+            { id: 9, type: "multi", q: "개인 인터넷 방송 플랫폼에서 발생 가능성이 매우 크지만, 규제 및 심의 법률을 직접 일일이 적용하기 어려운 주된 원인은?", options: ["방송국 한 곳에서만 전국의 미디어를 송출하기 때문", "매체 수용자 수가 극히 한정되어 영향이 거의 없기 때문", "별도 편집이 없는 생방송이 많고, 실시간으로 무수히 쏟아지는 수십만 채널을 다 검열하기 어려우므로", "개인 미디어 장비의 생산 자본이 대중 매체보다 너무 크기 때문", "모바일 미디어가 제공하는 지식의 학술 수준이 과도하게 전문적이기 때문"], ans: 2, exp: "1인 미디어는 전문 장비 없이 언제든 동시다발적으로 무수히 송출되고 실시간 생방송 빈도가 아주 높아 공적 기관에서 일일이 사전 규제하거나 사후 통제하기 매우 어렵습니다." },
+            { id: 10, type: "multi", q: "전통적 개념의 '대중 매체(Mass Media)' 범주로 엮기 힘든 다소 독립적인 매체 수단은?", options: ["매일 가구에 배달되는 지면 형태의 종이 일간지 신문", "지상파 망을 기반으로 전국에 송출하는 라디오 음악 채널 방송", "전문 잡지사에서 주기적으로 발행하여 상점에 진열하는 월간 도서 화보류", "기자가 환경 문제를 장기간 심층 고발한 공영 텔레비전 보도 프로그램", "한 개인이 일상적인 애완동물 돌봄 일기 영상을 개인 SNS 계정에 올려놓은 홈비디오 브이로그"], ans: 4, exp: "개인의 일상을 기록하고 불특정 다수가 아닌 소수의 시청자 및 팔로워들이 찾아와 공유하는 1인 비디오 플랫폼은 '개인 인터넷 방송'에 대응합니다." }
+        ];
+
+        var solvedQuestionsCount = 0;
+        var solvedState = {}; // Keeps track of solved question IDs: {1: {solved: true, score: 10}}
+        var studentGrade = "";
+        var studentClass = "";
+        var studentNumber = "";
+        var studentName = "";
+
+        // Unlock system when registration details are completed
+        function startQuizFlow() {
+            studentGrade = document.getElementById('info-grade').value.trim();
+            studentClass = document.getElementById('info-class').value.trim();
+            studentNumber = document.getElementById('info-number').value.trim();
+            studentName = document.getElementById('info-name').value.trim();
+
+            if (!studentGrade || !studentClass || !studentNumber || !studentName) {
+                alert("인적 사항(학년, 반, 번호, 이름)을 모두 올바르게 입력해 주세요.");
+                return;
+            }
+
+            // Reveal assessment, lock registration card
+            document.getElementById('student-form-card').classList.add('opacity-60', 'pointer-events-none');
+            // Change button to "등록 완료"
+            var startBtn = document.querySelector('#student-form-card button');
+            startBtn.innerHTML = "<i class='fas fa-user-check mr-2'></i>인적 사항 등록 완료";
+            startBtn.className = "bg-emerald-600 text-white font-bold py-3 px-8 rounded-xl text-sm shadow-md";
+
+            // Open Quiz workspace
+            document.getElementById('quiz-workspace').classList.remove('hidden');
+            
+            // Render Live Header spec
+            document.getElementById('display-student-tag').innerText = `수험자: ${studentGrade}학년 ${studentClass}반 ${studentNumber}번 ${studentName} 학생`;
+            
+            // Scroll smoothly to start point
+            setTimeout(() => {
+                document.getElementById('quiz-workspace').scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
+
+        // Render all questions
+        function renderQuizQuestions() {
+            var container = document.getElementById('quiz-cards-box');
+            container.innerHTML = "";
+            
+            quizQuestions.forEach(function(q, idx) {
+                var num = idx + 1;
+                var typeBadge = q.type === 'ox' ? "O/X 문제" : (q.type === 'short' ? "단답형 주관식" : "5지 선다형 객관식");
+                var badgeColor = q.type === 'ox' ? "bg-indigo-100 text-indigo-700" : (q.type === 'short' ? "bg-purple-100 text-purple-700" : "bg-emerald-100 text-emerald-700");
+                
+                var cardHTML = `
+                    <div id="q-card-${q.id}" class="p-6 rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition-all duration-200 space-y-4">
+                        <!-- Question Title -->
+                        <div class="flex items-start justify-between gap-2 border-b border-slate-50 pb-3">
+                            <div class="flex items-center gap-3">
+                                <span class="w-8 h-8 rounded-lg bg-slate-900 text-white font-black flex items-center justify-center text-sm">${num}</span>
+                                <span class="text-xs font-bold px-2.5 py-1 rounded-full ${badgeColor}">${typeBadge}</span>
+                            </div>
+                            <!-- Result Check Icon -->
+                            <div id="q-result-badge-${q.id}" class="hidden text-xl font-bold"></div>
+                        </div>
+                        
+                        <p class="text-base md:text-lg font-bold text-slate-900 leading-relaxed">${q.q}</p>
+                        
+                        <!-- Inputs area based on question type -->
+                        <div class="pt-2">
+                            ${renderAnswerOptions(q)}
+                        </div>
+                        
+                        <!-- Instant feedback explainer panel (Initially Hidden) -->
+                        <div id="q-feedback-panel-${q.id}" class="hidden mt-4 p-4 rounded-xl border">
+                            <h5 id="feedback-verdict-${q.id}" class="font-bold text-sm mb-1"></h5>
+                            <p class="text-xs md:text-sm text-slate-600 leading-relaxed"><span class="font-semibold text-slate-800">[정답 해설] </span>${q.exp}</p>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += cardHTML;
+            });
+        }
+
+        // Helpers to render options layout
+        function renderAnswerOptions(q) {
+            if (q.type === 'ox') {
+                return `
+                    <div class="grid grid-cols-2 gap-4 max-w-md">
+                        <button onclick="gradeOX(${q.id}, 'O')" id="ox-btn-${q.id}-O" class="py-3 text-center border-2 border-slate-200 rounded-xl font-black text-xl text-slate-500 hover:border-indigo-400 hover:bg-indigo-50/20 transition-all duration-150">O</button>
+                        <button onclick="gradeOX(${q.id}, 'X')" id="ox-btn-${q.id}-X" class="py-3 text-center border-2 border-slate-200 rounded-xl font-black text-xl text-slate-500 hover:border-red-400 hover:bg-red-50/20 transition-all duration-150">X</button>
+                    </div>
+                `;
+            } else if (q.type === 'short') {
+                return `
+                    <div class="flex flex-col sm:flex-row gap-2 max-w-md">
+                        <input type="text" id="short-input-${q.id}" placeholder="정답을 입력하세요" class="flex-grow px-4 py-2.5 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm font-medium">
+                        <button onclick="gradeShortAnswer(${q.id})" id="short-submit-${q.id}" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-5 py-2.5 rounded-xl text-sm transition-colors shrink-0">정답 제출</button>
+                    </div>
+                `;
+            } else if (q.type === 'multi') {
+                var optHTML = `<div class="space-y-2 max-w-2xl">`;
+                q.options.forEach(function(opt, index) {
+                    optHTML += `
+                        <button onclick="gradeMultipleChoice(${q.id}, ${index})" id="multi-btn-${q.id}-${index}" class="w-full text-left p-3.5 border border-slate-200 rounded-xl hover:bg-slate-50 text-sm font-medium text-slate-700 transition-all flex items-center gap-3">
+                            <span class="w-5 h-5 rounded-full bg-slate-100 text-slate-500 font-bold flex items-center justify-center shrink-0 text-xs">${index + 1}</span>
+                            <span>${opt}</span>
+                        </button>
+                    `;
+                });
+                optHTML += `</div>`;
+                return optHTML;
+            }
+            return "";
+        }
+
+        // ==========================================
+        // 4. 즉시 채점 제어 장치 (Immediate Grading API)
+        // ==========================================
+
+        // Update overall scorecard banner
+        function updateDashboardStatus() {
+            var keys = Object.keys(solvedState);
+            solvedQuestionsCount = keys.length;
+            
+            var totalScore = 0;
+            keys.forEach(function(k) {
+                totalScore += solvedState[k].score;
+            });
+
+            document.getElementById('progress-solved-count').innerText = solvedQuestionsCount;
+            document.getElementById('live-calculated-score').innerText = totalScore;
+        }
+
+        // Lock individual question container elements to prevent re-solving
+        function lockQuestionCard(qId) {
+            var card = document.getElementById(`q-card-${qId}`);
+            // Disable nested input buttons
+            var buttons = card.querySelectorAll('button');
+            buttons.forEach(function(btn) {
+                btn.disabled = true;
+                btn.classList.add('cursor-not-allowed', 'opacity-70');
+            });
+            var inputs = card.querySelectorAll('input');
+            inputs.forEach(function(inp) {
+                inp.disabled = true;
+                inp.classList.add('cursor-not-allowed', 'bg-slate-50', 'text-slate-400');
+            });
+        }
+
+        // Reveal feedback panel
+        function revealFeedback(qId, isCorrect) {
+            var panel = document.getElementById(`q-feedback-panel-${qId}`);
+            var verdict = document.getElementById(`feedback-verdict-${qId}`);
+            var badge = document.getElementById(`q-result-badge-${qId}`);
+            var qData = quizQuestions.find(q => q.id === qId);
+
+            panel.classList.remove('hidden');
+            badge.classList.remove('hidden');
+
+            if (isCorrect) {
+                panel.className = "mt-4 p-4 rounded-xl border border-emerald-200 bg-emerald-50/40";
+                verdict.className = "font-bold text-sm text-emerald-800 mb-1";
+                verdict.innerHTML = `<i class="fas fa-check-circle mr-1"></i> 정답입니다! (+10점)`;
+                
+                badge.className = "text-emerald-500 font-bold";
+                badge.innerHTML = `<i class="fas fa-circle-check"></i>`;
+            } else {
+                panel.className = "mt-4 p-4 rounded-xl border border-rose-200 bg-rose-50/40";
+                verdict.className = "font-bold text-sm text-rose-800 mb-1";
+                
+                var formattedAns = qData.type === 'multi' ? `${qData.ans + 1}번 선택지` : `"${qData.ans}"`;
+                verdict.innerHTML = `<i class="fas fa-times-circle mr-1"></i> 오답입니다. (올바른 정답: <span class="underline">${formattedAns}</span>)`;
+                
+                badge.className = "text-rose-500 font-bold";
+                badge.innerHTML = `<i class="fas fa-circle-xmark"></i>`;
+            }
+        }
+
+        // Grade OX type immediately
+        window.gradeOX = function(qId, userChoice) {
+            if (solvedState[qId]) return; // Guard
+            
+            var qData = quizQuestions.find(q => q.id === qId);
+            var isCorrect = qData.ans === userChoice;
+
+            // Highlight chosen button
+            var correctBtn = document.getElementById(`ox-btn-${qId}-${qData.ans}`);
+            var chosenBtn = document.getElementById(`ox-btn-${qId}-${userChoice}`);
+            
+            if (isCorrect) {
+                chosenBtn.className = "py-3 text-center border-2 border-emerald-500 bg-emerald-100/50 rounded-xl font-black text-xl text-emerald-700";
+            } else {
+                chosenBtn.className = "py-3 text-center border-2 border-rose-500 bg-rose-100/50 rounded-xl font-black text-xl text-rose-700";
+                correctBtn.className = "py-3 text-center border-2 border-emerald-500 bg-emerald-50/30 rounded-xl font-black text-xl text-emerald-600";
+            }
+
+            // Record state
+            solvedState[qId] = {
+                solved: true,
+                score: isCorrect ? 10 : 0
+            };
+
+            lockQuestionCard(qId);
+            revealFeedback(qId, isCorrect);
+            updateDashboardStatus();
+        };
+
+        // Grade Short Answer type immediately
+        window.gradeShortAnswer = function(qId) {
+            if (solvedState[qId]) return;
+
+            var qData = quizQuestions.find(q => q.id === qId);
+            var userInput = document.getElementById(`short-input-${qId}`).value.trim();
+
+            if (!userInput) {
+                alert("답안을 입력한 후 제출해 주세요.");
+                return;
+            }
+
+            // Normalizing spacing for robust matching
+            var isCorrect = userInput.replace(/\s+/g, '') === qData.ans.replace(/\s+/g, '');
+
+            var inputField = document.getElementById(`short-input-${qId}`);
+            if (isCorrect) {
+                inputField.className = "flex-grow px-4 py-2.5 border-2 border-emerald-500 bg-emerald-50 text-emerald-900 rounded-xl focus:outline-none text-sm font-semibold";
+            } else {
+                inputField.className = "flex-grow px-4 py-2.5 border-2 border-rose-500 bg-rose-50 text-rose-900 rounded-xl focus:outline-none text-sm font-semibold";
+            }
+
+            solvedState[qId] = {
+                solved: true,
+                score: isCorrect ? 10 : 0
+            };
+
+            lockQuestionCard(qId);
+            revealFeedback(qId, isCorrect);
+            updateDashboardStatus();
+        };
+
+        // Grade Multiple Choice type immediately
+        window.gradeMultipleChoice = function(qId, userIndex) {
+            if (solvedState[qId]) return;
+
+            var qData = quizQuestions.find(q => q.id === qId);
+            var isCorrect = qData.ans === userIndex;
+
+            // Highlight buttons
+            var correctBtn = document.getElementById(`multi-btn-${qId}-${qData.ans}`);
+            var chosenBtn = document.getElementById(`multi-btn-${qId}-${userIndex}`);
+
+            if (isCorrect) {
+                chosenBtn.className = "w-full text-left p-3.5 border-2 border-emerald-500 bg-emerald-50 rounded-xl text-sm font-semibold text-emerald-900 flex items-center gap-3";
+                chosenBtn.querySelector('span').className = "w-5 h-5 rounded-full bg-emerald-500 text-white font-bold flex items-center justify-center shrink-0 text-xs";
+            } else {
+                chosenBtn.className = "w-full text-left p-3.5 border-2 border-rose-500 bg-rose-50 rounded-xl text-sm font-semibold text-rose-900 flex items-center gap-3";
+                chosenBtn.querySelector('span').className = "w-5 h-5 rounded-full bg-rose-500 text-white font-bold flex items-center justify-center shrink-0 text-xs";
+
+                correctBtn.className = "w-full text-left p-3.5 border-2 border-emerald-500 bg-emerald-50/50 rounded-xl text-sm font-semibold text-emerald-800 flex items-center gap-3";
+                correctBtn.querySelector('span').className = "w-5 h-5 rounded-full bg-emerald-500 text-white font-bold flex items-center justify-center shrink-0 text-xs";
+            }
+
+            solvedState[qId] = {
+                solved: true,
+                score: isCorrect ? 10 : 0
+            };
+
+            lockQuestionCard(qId);
+            revealFeedback(qId, isCorrect);
+            updateDashboardStatus();
+        };
+
+        // Complete whole quiz and render final assessment overlay board
+        window.completeWholeAssessment = function() {
+            var keys = Object.keys(solvedState);
+            if (keys.length < 10) {
+                var proceed = confirm(`아직 풀지 않은 문제가 ${10 - keys.length}개 있습니다. 이대로 평가 결과표를 생성할까요?`);
+                if (!proceed) return;
+            }
+
+            var totalScore = 0;
+            keys.forEach(function(k) {
+                totalScore += solvedState[k].score;
+            });
+
+            // Populate overlay contents
+            document.getElementById('board-student-spec').innerText = `${studentGrade}학년 ${studentClass}반 ${studentNumber}번 ${studentName}`;
+            document.getElementById('board-final-score').innerText = totalScore;
+
+            var feedback = "";
+            if (totalScore === 100) {
+                feedback = "💯 완벽합니다! 대중 매체와 개인 인터넷 방송의 특성, 어휘력, 그리고 미디어 리터러시 능력을 완벽하게 마스터한 1등 수험생입니다. 훌륭해요!";
+            } else if (totalScore >= 80) {
+                feedback = "🌟 최고 수준입니다! 대중 매체와 개인 방송의 제작 주체, 소통 양식, 비판적 수용력을 전반적으로 매우 우수하게 파악하고 있습니다.";
+            } else if (totalScore >= 60) {
+                feedback = "👍 우수한 학업 성취입니다! 다만 틀린 문제의 정답과 아래 정밀 해설을 한 번 더 천천히 훑어보며 누락된 개념을 보완해 보세요.";
+            } else {
+                feedback = "📖 아쉬움이 남는 단원입니다. 1번 학습 탭의 [매체 비교 표]와 어휘 플래시 카드를 한 번 더 정성 들여 공부한 후 재시험에 응해보세요.";
+            }
+
+            document.getElementById('board-result-feedback').innerText = feedback;
+
+            // Reveal overlay board and scroll to it
+            var board = document.getElementById('whole-result-overlay');
+            board.classList.remove('hidden');
+            
+            setTimeout(() => {
+                board.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        };
+
+        // Completely reset quiz space to default
+        window.retryWholeQuiz = function() {
+            solvedQuestionsCount = 0;
+            solvedState = {};
+            
+            // Unlock student registration form
+            document.getElementById('student-form-card').classList.remove('opacity-60', 'pointer-events-none');
+            var startBtn = document.querySelector('#student-form-card button');
+            startBtn.innerHTML = "<i class='fas fa-lock-open mr-2'></i>평가 시작하기";
+            startBtn.className = "unlock-pulse bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-xl text-sm md:text-base transition-all duration-150 active:scale-95";
+
+            // Reset registration input fields
+            document.getElementById('info-grade').value = "";
+            document.getElementById('info-class').value = "";
+            document.getElementById('info-number').value = "";
+            document.getElementById('info-name').value = "";
+
+            // Hide Workspace and Result overlay
+            document.getElementById('quiz-workspace').classList.add('hidden');
+            document.getElementById('whole-result-overlay').classList.add('hidden');
+
+            // Render fresh clean questions
+            renderQuizQuestions();
+            updateDashboardStatus();
+
+            // Scroll up smoothly
+            document.getElementById('tab-quiz').scrollIntoView({ behavior: 'smooth' });
+        };
+
+        // ==========================================
+        // 5. 페이지 초기 로드 구동 체계
+        // ==========================================
+        window.onload = function() {
+            renderVocabGrid4x5();
+            renderQuizQuestions();
+            // Start default tab
+            window.showTab('media-concept');
+        };
+    </script>
+</body>
+</html>
