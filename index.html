@@ -85,16 +85,16 @@
     <!-- Main Content Area -->
     <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full space-y-8">
         
-        <!-- Navigation Buttons (Moved outside of header) -->
+        <!-- Navigation Buttons (Detached and Centered with enlarged text sizes) -->
         <div class="flex justify-center w-full">
             <nav class="flex flex-wrap justify-center w-full gap-4 md:gap-8">
-                <button onclick="window.showTab('media-concept')" id="btn-media-concept" class="tab-btn whitespace-nowrap py-3.5 px-6 md:px-10 font-bold text-base md:text-lg rounded-xl bg-white text-indigo-700 border border-slate-200 shadow-md transition-all duration-200 transform hover:-translate-y-1">
+                <button onclick="window.showTab('media-concept')" id="btn-media-concept" class="tab-btn whitespace-nowrap py-4 px-8 md:px-12 font-bold text-lg md:text-xl rounded-2xl bg-white text-indigo-700 border border-slate-200 shadow-md transition-all duration-200 transform hover:-translate-y-1">
                     <i class="fas fa-book-open mr-2"></i>매체의 개념과 특징
                 </button>
-                <button onclick="window.showTab('vocab')" id="btn-vocab" class="tab-btn whitespace-nowrap py-3.5 px-6 md:px-10 font-bold text-base md:text-lg rounded-xl bg-slate-200/80 hover:bg-slate-300 text-slate-600 border border-transparent transition-all duration-200 transform hover:-translate-y-1">
+                <button onclick="window.showTab('vocab')" id="btn-vocab" class="tab-btn whitespace-nowrap py-4 px-8 md:px-12 font-bold text-lg md:text-xl rounded-2xl bg-slate-200/80 hover:bg-slate-300 text-slate-600 border border-transparent transition-all duration-200 transform hover:-translate-y-1">
                     <i class="fas fa-language mr-2"></i>어휘 정리
                 </button>
-                <button onclick="window.showTab('quiz')" id="btn-quiz" class="tab-btn whitespace-nowrap py-3.5 px-6 md:px-10 font-bold text-base md:text-lg rounded-xl bg-slate-200/80 hover:bg-slate-300 text-slate-600 border border-transparent transition-all duration-200 transform hover:-translate-y-1">
+                <button onclick="window.showTab('quiz')" id="btn-quiz" class="tab-btn whitespace-nowrap py-4 px-8 md:px-12 font-bold text-lg md:text-xl rounded-2xl bg-slate-200/80 hover:bg-slate-300 text-slate-600 border border-transparent transition-all duration-200 transform hover:-translate-y-1">
                     <i class="fas fa-pen-fancy mr-2"></i>형성 평가
                 </button>
             </nav>
@@ -183,7 +183,7 @@
                     </div>
                 </div>
 
-                <!-- 매체 비교 표 -->
+                <!-- 매체 비교 표 (강조 어휘 굵기 적용) -->
                 <div class="bg-white rounded-2xl shadow-sm p-6 md:p-8 border border-slate-100">
                     <div class="flex items-center gap-2 mb-6 border-b border-slate-100 pb-4">
                         <span class="w-1.5 h-6 bg-indigo-600 rounded-full"></span>
@@ -203,28 +203,28 @@
                                 <tr class="border-b border-slate-100 hover:bg-slate-50/50 transition-colors">
                                     <td class="p-4 font-semibold text-center bg-slate-50 text-slate-700">자본 규모</td>
                                     <td class="p-4 text-slate-600">
-                                        기획·운영을 위해 조직적 차원의 <span class="font-black text-indigo-700 bg-indigo-50 px-2 py-1 rounded">많은 자본</span>이 필요함
+                                        기획·운영을 위해 조직적 차원의 <span class="font-black text-indigo-700 bg-indigo-50 px-2.5 py-1 rounded-md">많은 자본</span>이 필요함
                                     </td>
                                     <td class="p-4 text-slate-600">
-                                        스마트 기기 기반의 환경으로 <span class="font-black text-pink-700 bg-pink-50 px-2 py-1 rounded">적은 자본</span>으로 제작 가능
+                                        스마트 기기 기반의 환경으로 <span class="font-black text-pink-700 bg-pink-50 px-2.5 py-1 rounded-md">적은 자본</span>으로 제작 가능
                                     </td>
                                 </tr>
                                 <tr class="border-b border-slate-100 hover:bg-slate-50/50 transition-colors">
                                     <td class="p-4 font-semibold text-center bg-slate-50 text-slate-700">제작 및 참여 인력</td>
                                     <td class="p-4 text-slate-600">
-                                        전문 방송사 등 <span class="font-black text-indigo-700 bg-indigo-50 px-2 py-1 rounded">다수 전문 인력</span>의 정교한 분업화
+                                        전문 방송사 등 <span class="font-black text-indigo-700 bg-indigo-50 px-2.5 py-1 rounded-md">다수 전문 인력</span>의 정교한 분업화
                                     </td>
                                     <td class="p-4 text-slate-600">
-                                        별도의 자격 요건 없이 <span class="font-black text-pink-700 bg-pink-50 px-2 py-1 rounded">전문성 없어도 누구나</span> 1인 제작 가능
+                                        별도의 자격 요건 없이 <span class="font-black text-pink-700 bg-pink-50 px-2.5 py-1 rounded-md">전문성 없어도 누구나</span> 1인 제작 가능
                                     </td>
                                 </tr>
                                 <tr class="hover:bg-slate-50/50 transition-colors">
                                     <td class="p-4 font-semibold text-center bg-slate-50 text-slate-700">주요 수용 대상</td>
                                     <td class="p-4 text-slate-600">
-                                        사회 전반의 불특정 다수인 <span class="font-black text-indigo-700 bg-indigo-50 px-2 py-1 rounded">대중</span> 지향
+                                        사회 전반의 불특정 다수인 <span class="font-black text-indigo-700 bg-indigo-50 px-2.5 py-1 rounded-md">대중</span> 지향
                                     </td>
                                     <td class="p-4 text-slate-600">
-                                        특정 취향이나 세밀한 분야에 <span class="font-black text-pink-700 bg-pink-50 px-2 py-1 rounded">관심 있는 일부</span> 매니아 중심
+                                        특정 취향이나 세밀한 분야에 <span class="font-black text-pink-700 bg-pink-50 px-2.5 py-1 rounded-md">관심 있는 일부</span> 매니아 중심
                                     </td>
                                 </tr>
                             </tbody>
@@ -280,7 +280,7 @@
         </section>
 
         <!-- ============================================== -->
-        <!-- 2. 어휘 정리 탭 (4단 5열 그리드) -->
+        <!-- 2. 어휘 정리 탭 (4단 5열 그리드 - 한 단계 더 큰 텍스트) -->
         <!-- ============================================== -->
         <section id="tab-vocab" class="tab-content hidden">
             <div class="bg-white rounded-2xl shadow-sm p-6 md:p-10 text-center space-y-8 border border-slate-100">
@@ -369,7 +369,7 @@
                     <div class="border-t border-slate-100 pt-8 text-center space-y-4">
                         <p class="text-xs text-slate-400">모든 개별 문제 채점을 완료하신 후 최종 완료 결과를 저장 및 확인하세요.</p>
                         <button id="btn-final-finish" onclick="completeWholeAssessment()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3.5 px-8 rounded-xl shadow-md text-sm md:text-base">
-                            <i class="fas fa-flag-checkered mr-1.5"></i>전체 결과표 열람
+                            <i class="fas fa-flag-checkered mr-1.5"></i>전체 결과 제출 및 확인
                         </button>
                     </div>
 
@@ -510,7 +510,7 @@
         ];
 
         var solvedQuestionsCount = 0;
-        var solvedState = {}; // Keeps track of solved question IDs: {1: {solved: true, score: 10}}
+        var solvedState = {}; // Keeps track of solved question IDs: {1: {solved: true, score: 10, userResponse: "X"}}
         var studentGrade = "";
         var studentClass = "";
         var studentNumber = "";
@@ -700,10 +700,11 @@
                 correctBtn.className = "py-3 text-center border-2 border-emerald-500 bg-emerald-50/30 rounded-xl font-black text-xl text-emerald-600";
             }
 
-            // Record state
+            // 시트 전송을 위해 사용자 응답(O/X) 내역 추가 저장
             solvedState[qId] = {
                 solved: true,
-                score: isCorrect ? 10 : 0
+                score: isCorrect ? 10 : 0,
+                userResponse: userChoice
             };
 
             lockQuestionCard(qId);
@@ -733,9 +734,11 @@
                 inputField.className = "flex-grow px-4 py-2.5 border-2 border-rose-500 bg-rose-50 text-rose-900 rounded-xl focus:outline-none text-sm font-semibold";
             }
 
+            // 시트 전송을 위해 사용자 응답(텍스트) 내역 추가 저장
             solvedState[qId] = {
                 solved: true,
-                score: isCorrect ? 10 : 0
+                score: isCorrect ? 10 : 0,
+                userResponse: userInput
             };
 
             lockQuestionCard(qId);
@@ -765,9 +768,11 @@
                 correctBtn.querySelector('span').className = "w-5 h-5 rounded-full bg-emerald-500 text-white font-bold flex items-center justify-center shrink-0 text-xs";
             }
 
+            // 시트 전송을 위해 사용자 응답 내역 추가 저장 (숫자만 저장)
             solvedState[qId] = {
                 solved: true,
-                score: isCorrect ? 10 : 0
+                score: isCorrect ? 10 : 0,
+                userResponse: (userIndex + 1) // "번"을 떼고 숫자만 수집하도록 변경
             };
 
             lockQuestionCard(qId);
@@ -775,18 +780,70 @@
             updateDashboardStatus();
         };
 
-        // Complete whole quiz and render final assessment overlay board
+        // ==========================================
+        // 5. 시트로 데이터 전송 및 결과창 표기 로직
+        // ==========================================
         window.completeWholeAssessment = function() {
             var keys = Object.keys(solvedState);
             if (keys.length < 10) {
-                var proceed = confirm(`아직 풀지 않은 문제가 ${10 - keys.length}개 있습니다. 이대로 평가 결과표를 생성할까요?`);
+                var proceed = confirm(`아직 풀지 않은 문제가 ${10 - keys.length}개 있습니다. 이대로 평가 결과표를 생성하고 전송할까요?`);
                 if (!proceed) return;
             }
+
+            // 버튼 상태를 로딩 중으로 변경
+            var btn = document.getElementById('btn-final-finish');
+            btn.innerHTML = `<i class="fas fa-spinner fa-spin mr-1.5"></i>데이터 전송 중...`;
+            btn.disabled = true;
 
             var totalScore = 0;
             keys.forEach(function(k) {
                 totalScore += solvedState[k].score;
             });
+
+            // 시트로 보낼 데이터 페이로드 구성
+            var payload = {
+                grade: studentGrade,
+                classNum: studentClass,
+                studentNum: studentNumber,
+                name: studentName,
+                totalScore: totalScore,
+                answers: {}
+            };
+
+            for(var i = 1; i <= 10; i++) {
+                if(solvedState[i]) {
+                    payload.answers[i] = {
+                        response: solvedState[i].userResponse,
+                        isCorrect: solvedState[i].score > 0
+                    };
+                }
+            }
+
+            // 구글 앱스 스크립트 내부 통신(google.script.run) 여부 확인
+            if (typeof google !== 'undefined' && google.script && google.script.run) {
+                // Apps Script 환경 내 배포 시 (성공적으로 연결됨)
+                google.script.run
+                    .withSuccessHandler(function() {
+                        showFinalBoard(totalScore);
+                    })
+                    .withFailureHandler(function(error) {
+                        alert("데이터 전송 중 오류 발생: " + error);
+                        showFinalBoard(totalScore);
+                    })
+                    .saveQuizData(payload);
+            } else {
+                // 일반 웹 환경(캔버스 미리보기)일 경우 모의 실행 로그 출력 후 결과판 띄움
+                console.log("📝 [내부 전송 모의 실행] 시트로 기록될 데이터: ", payload);
+                setTimeout(function() {
+                    showFinalBoard(totalScore);
+                }, 800);
+            }
+        };
+
+        // 결과 통지서 오버레이 출력
+        function showFinalBoard(totalScore) {
+            var btn = document.getElementById('btn-final-finish');
+            btn.innerHTML = `<i class="fas fa-check mr-1.5"></i>전송 및 채점 완료`;
 
             // Populate overlay contents
             document.getElementById('board-student-spec').innerText = `${studentGrade}학년 ${studentClass}반 ${studentNumber}번 ${studentName}`;
@@ -794,7 +851,7 @@
 
             var feedback = "";
             if (totalScore === 100) {
-                feedback = "💯 완벽합니다! 대중 매체와 개인 인터넷 방송의 특성, 어휘력, 그리고 미디어 리터러시 능력을 완벽하게 마스터한 1등 수험생입니다. 훌륭해요!";
+                feedback = "💯 완벽합니다! 대중 매체와 개인 인터넷 방송의 특성, 어휘력, 그리고 미디어 리터러시 능력을 완벽하게 마스터한 1등 수험생입니다. 데이터도 안전하게 저장되었습니다!";
             } else if (totalScore >= 80) {
                 feedback = "🌟 최고 수준입니다! 대중 매체와 개인 방송의 제작 주체, 소통 양식, 비판적 수용력을 전반적으로 매우 우수하게 파악하고 있습니다.";
             } else if (totalScore >= 60) {
@@ -812,7 +869,7 @@
             setTimeout(() => {
                 board.scrollIntoView({ behavior: 'smooth' });
             }, 100);
-        };
+        }
 
         // Completely reset quiz space to default
         window.retryWholeQuiz = function() {
@@ -824,6 +881,11 @@
             var startBtn = document.querySelector('#student-form-card button');
             startBtn.innerHTML = "<i class='fas fa-lock-open mr-2'></i>평가 시작하기";
             startBtn.className = "unlock-pulse bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-xl text-sm md:text-base transition-all duration-150 active:scale-95";
+
+            // Reset submission button state
+            var finalBtn = document.getElementById('btn-final-finish');
+            finalBtn.innerHTML = `<i class="fas fa-flag-checkered mr-1.5"></i>전체 결과 제출 및 확인`;
+            finalBtn.disabled = false;
 
             // Reset registration input fields
             document.getElementById('info-grade').value = "";
@@ -844,7 +906,7 @@
         };
 
         // ==========================================
-        // 5. 페이지 초기 로드 구동 체계
+        // 6. 페이지 초기 로드 구동 체계
         // ==========================================
         window.onload = function() {
             renderVocabGrid4x5();
